@@ -1,4 +1,4 @@
-import { BucketList, todo } from "./todo";
+import { BucketList } from "./todo";
 
 window.onload = function () {
   displayTodo();
