@@ -11,9 +11,11 @@ let myBucketList = [
   new BucketList("plugga", false),
 ];
 
-let myEmptyList = [];
+let myEmptyList: [] = [];
 
-let ulList = document.getElementById("ulList");
+let ulList: HTMLUListElement = document.getElementById(
+  "ulList"
+) as HTMLUListElement;
 
 function displayTodo() {
   ulList.innerHTML = "";
