@@ -1,21 +1,13 @@
-import { BucketList } from "./todo";
+import type { IBucketListItem } from "./models/BucketList";
+import { BucketListItem } from "./models/BucketList";
+let myBucketList: IBucketListItem[] = [];
+let ulList: HTMLUListElement = document.getElementById(
+  "ulList"
+) as HTMLUListElement;
 
 window.onload = function () {
   displayTodo();
 };
-
-let myBucketList = [
-  new BucketList("Städa", false),
-  new BucketList("Gymma", false),
-  new BucketList("laga mat", false),
-  new BucketList("plugga", false),
-];
-
-let myEmptyList: [] = [];
-
-let ulList: HTMLUListElement = document.getElementById(
-  "ulList"
-) as HTMLUListElement;
 
 function displayTodo() {
   ulList.innerHTML = "";
@@ -56,7 +48,7 @@ function displayTodo() {
 function myCheckboxList(
   listCheckbox: HTMLInputElement,
   textSpan: HTMLSpanElement,
-  todoList: BucketList
+  todoList: IBucketListItem
 ) {
   if (listCheckbox.checked) {
     textSpan.innerHTML = todoList.task + " " + ":Klar";
@@ -65,13 +57,9 @@ function myCheckboxList(
   }
 }
 
-function changeMyBucketList(todoList: BucketList) {
+function changeMyBucketList(todoList: IBucketListItem) {
   let index = myBucketList.indexOf(todoList);
-  console.log(index);
   myBucketList.splice(index, 1);
-  myEmptyList.push(todoList);
-  console.log(myBucketList);
-  console.log(myEmptyList);
 
   displayTodo();
 }
@@ -84,12 +72,12 @@ inputButton.classList.add("inputButtonStyle");
 inputButton.innerHTML = "Lägg till Todo!";
 inputButton.addEventListener("click", addTaskToList);
 
-function addTaskToList(e) {
+function addTaskToList(e: any) {
   e.preventDefault();
   let inputValue = inputTask.value;
   if (inputValue !== "") {
-    let addToList = new BucketList(inputValue, false);
+    let addToList = new BucketListItem(inputValue, false);
     myBucketList.push(addToList);
-    displayTodo(addToList);
+    displayTodo();
   }
 }
