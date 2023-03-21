@@ -53,7 +53,11 @@ function displayTodo() {
   }
 }
 
-function myCheckboxList(listCheckbox, textSpan, todoList) {
+function myCheckboxList(
+  listCheckbox: HTMLInputElement,
+  textSpan: HTMLSpanElement,
+  todoList: BucketList
+) {
   if (listCheckbox.checked) {
     textSpan.innerHTML = todoList.task + " " + ":Klar";
   } else {
