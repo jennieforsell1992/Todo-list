@@ -65,7 +65,7 @@ function myCheckboxList(
   }
 }
 
-function changeMyBucketList(todoList) {
+function changeMyBucketList(todoList: BucketList) {
   let index = myBucketList.indexOf(todoList);
   console.log(index);
   myBucketList.splice(index, 1);
@@ -76,10 +76,10 @@ function changeMyBucketList(todoList) {
   displayTodo();
 }
 
-let inputTask = document.getElementById("inputTask");
+let inputTask = document.getElementById("inputTask") as HTMLInputElement;
 inputTask.classList.add("inputTaskStyle");
 
-let inputButton = document.getElementById("inputButton");
+let inputButton = document.getElementById("inputButton") as HTMLButtonElement;
 inputButton.classList.add("inputButtonStyle");
 inputButton.innerHTML = "Lägg till Todo!";
 inputButton.addEventListener("click", addTaskToList);
