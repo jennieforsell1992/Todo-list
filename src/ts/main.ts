@@ -23,7 +23,7 @@ function displayTodo() {
 
     itemText.innerHTML = bucketList[i].item;
 
-    let bucketListWithItems = bucketList[i];
+    let itemInBucketList = bucketList[i];
 
     items.appendChild(item);
     item.appendChild(itemText);
@@ -33,7 +33,7 @@ function displayTodo() {
     itemCheckbox.classList.add("listCheckboxStyle");
     item.appendChild(itemCheckbox);
     itemCheckbox.addEventListener("click", () => {
-      myCheckboxList(itemCheckbox, itemText, bucketListWithItems);
+      myCheckboxList(itemCheckbox, itemText, itemInBucketList);
     });
 
     let listButton = document.createElement("button");
@@ -41,20 +41,20 @@ function displayTodo() {
     item.appendChild(listButton);
     listButton.innerHTML = "ta bort!";
     listButton.addEventListener("click", () => {
-      changeMyBucketList(bucketListWithItems);
+      changeMyBucketList(itemInBucketList);
     });
   }
 }
 
 function myCheckboxList(
-  listCheckbox: HTMLInputElement,
-  textSpan: HTMLSpanElement,
-  todoList: IBucketListItem
+  itemCheckbox: HTMLInputElement,
+  itemText: HTMLSpanElement,
+  itemInBucketList: IBucketListItem
 ) {
-  if (listCheckbox.checked) {
-    textSpan.innerHTML = todoList.item + " " + ":Klar";
+  if (itemCheckbox.checked) {
+    itemText.innerHTML = itemInBucketList.item + " " + ":Klar";
   } else {
-    return (textSpan.innerHTML = todoList.item);
+    return (itemText.innerHTML = itemInBucketList.item);
   }
 }
 
