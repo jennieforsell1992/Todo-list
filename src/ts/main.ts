@@ -68,10 +68,12 @@ function changeMyBucketList(bucketListWithItems: IBucketListItem) {
 let inputItem = document.getElementById("inputTask") as HTMLInputElement;
 inputItem.classList.add("inputTaskStyle");
 
-let inputButton = document.getElementById("inputButton") as HTMLButtonElement;
-inputButton.classList.add("inputButtonStyle");
-inputButton.innerHTML = "Lägg till Todo!";
-inputButton.addEventListener("click", addItemToBucketlist);
+let inputItemButton = document.getElementById(
+  "inputButton"
+) as HTMLButtonElement;
+inputItemButton.classList.add("inputButtonStyle");
+inputItemButton.innerHTML = "Lägg till Todo!";
+inputItemButton.addEventListener("click", addItemToBucketlist);
 
 function addItemToBucketlist(e: any) {
   e.preventDefault();
