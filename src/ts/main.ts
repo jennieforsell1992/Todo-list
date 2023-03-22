@@ -28,12 +28,12 @@ function displayTodo() {
     items.appendChild(item);
     item.appendChild(itemText);
 
-    let listCheckbox = document.createElement("input");
-    listCheckbox.setAttribute("type", "checkbox");
-    listCheckbox.classList.add("listCheckboxStyle");
-    item.appendChild(listCheckbox);
-    listCheckbox.addEventListener("click", () => {
-      myCheckboxList(listCheckbox, itemText, bucketListWithItems);
+    let itemCheckbox = document.createElement("input");
+    itemCheckbox.setAttribute("type", "checkbox");
+    itemCheckbox.classList.add("listCheckboxStyle");
+    item.appendChild(itemCheckbox);
+    itemCheckbox.addEventListener("click", () => {
+      myCheckboxList(itemCheckbox, itemText, bucketListWithItems);
     });
 
     let listButton = document.createElement("button");
