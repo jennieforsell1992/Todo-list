@@ -79,8 +79,8 @@ function addItemToBucketlist(e: any) {
   e.preventDefault();
   let inputValue = inputItem.value;
   if (inputValue !== "") {
-    let addToList = new BucketListItem(inputValue, false);
-    bucketList.push(addToList);
+    let addItem = new BucketListItem(inputValue, false);
+    bucketList.push(addItem);
     createHtmlBucketList();
   }
 }
