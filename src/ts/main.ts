@@ -15,30 +15,30 @@ function displayTodo() {
 
   console.log(bucketList);
   for (let i = 0; i < bucketList.length; i++) {
-    let newLiList = document.createElement("li");
-    let textSpan = document.createElement("span");
+    let item = document.createElement("li");
+    let itemText = document.createElement("span");
 
-    newLiList.classList.add("newLiListStyle");
-    textSpan.classList.add("textSpanStyle");
+    item.classList.add("newLiListStyle");
+    itemText.classList.add("textSpanStyle");
 
-    textSpan.innerHTML = bucketList[i].item;
+    itemText.innerHTML = bucketList[i].item;
 
     let todoList = bucketList[i];
 
-    items.appendChild(newLiList);
-    newLiList.appendChild(textSpan);
+    items.appendChild(item);
+    item.appendChild(itemText);
 
     let listCheckbox = document.createElement("input");
     listCheckbox.setAttribute("type", "checkbox");
     listCheckbox.classList.add("listCheckboxStyle");
-    newLiList.appendChild(listCheckbox);
+    item.appendChild(listCheckbox);
     listCheckbox.addEventListener("click", () => {
-      myCheckboxList(listCheckbox, textSpan, todoList);
+      myCheckboxList(listCheckbox, itemText, todoList);
     });
 
     let listButton = document.createElement("button");
     listButton.classList.add("listButtonStyle");
-    newLiList.appendChild(listButton);
+    item.appendChild(listButton);
     listButton.innerHTML = "ta bort!";
     listButton.addEventListener("click", () => {
       changeMyBucketList(todoList);
