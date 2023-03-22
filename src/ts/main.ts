@@ -2,7 +2,7 @@ import type { IBucketListItem } from "./models/BucketList";
 import { BucketListItem } from "./models/BucketList";
 
 let bucketList: IBucketListItem[] = [];
-let ulList: HTMLUListElement = document.getElementById(
+let items: HTMLUListElement = document.getElementById(
   "ulList"
 ) as HTMLUListElement;
 
@@ -11,7 +11,7 @@ window.onload = function () {
 };
 
 function displayTodo() {
-  ulList.innerHTML = "";
+  items.innerHTML = "";
 
   console.log(bucketList);
   for (let i = 0; i < bucketList.length; i++) {
@@ -25,7 +25,7 @@ function displayTodo() {
 
     let todoList = bucketList[i];
 
-    ulList.appendChild(newLiList);
+    items.appendChild(newLiList);
     newLiList.appendChild(textSpan);
 
     let listCheckbox = document.createElement("input");
