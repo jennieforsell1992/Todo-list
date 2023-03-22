@@ -12,8 +12,6 @@ window.onload = function () {
 
 function createHtmlBucketList() {
   items.innerHTML = "";
-
-  console.log(bucketList);
   for (let i = 0; i < bucketList.length; i++) {
     let item = document.createElement("li");
     let itemText = document.createElement("span");
