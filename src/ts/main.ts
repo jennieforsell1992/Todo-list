@@ -41,7 +41,7 @@ function createHtmlBucketList() {
     item.appendChild(deleteItemButton);
     deleteItemButton.innerHTML = "ta bort!";
     deleteItemButton.addEventListener("click", () => {
-      changeMyBucketList(itemInBucketList);
+      deleteItemInBucketList(itemInBucketList);
     });
   }
 }
@@ -58,8 +58,8 @@ function checkboxBucketlist(
   }
 }
 
-function changeMyBucketList(bucketListWithItems: IBucketListItem) {
-  let index = bucketList.indexOf(bucketListWithItems);
+function deleteItemInBucketList(itemInBucketList: IBucketListItem) {
+  let index = bucketList.indexOf(itemInBucketList);
   bucketList.splice(index, 1);
 
   createHtmlBucketList();
