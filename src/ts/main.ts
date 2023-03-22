@@ -65,8 +65,8 @@ function changeMyBucketList(bucketListWithItems: IBucketListItem) {
   displayTodo();
 }
 
-let inputTask = document.getElementById("inputTask") as HTMLInputElement;
-inputTask.classList.add("inputTaskStyle");
+let inputItem = document.getElementById("inputTask") as HTMLInputElement;
+inputItem.classList.add("inputTaskStyle");
 
 let inputButton = document.getElementById("inputButton") as HTMLButtonElement;
 inputButton.classList.add("inputButtonStyle");
@@ -75,7 +75,7 @@ inputButton.addEventListener("click", addItemToBucketlist);
 
 function addItemToBucketlist(e: any) {
   e.preventDefault();
-  let inputValue = inputTask.value;
+  let inputValue = inputItem.value;
   if (inputValue !== "") {
     let addToList = new BucketListItem(inputValue, false);
     bucketList.push(addToList);
