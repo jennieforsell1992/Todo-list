@@ -23,7 +23,7 @@ function displayTodo() {
 
     itemText.innerHTML = bucketList[i].item;
 
-    let todoList = bucketList[i];
+    let bucketListWithItems = bucketList[i];
 
     items.appendChild(item);
     item.appendChild(itemText);
@@ -33,7 +33,7 @@ function displayTodo() {
     listCheckbox.classList.add("listCheckboxStyle");
     item.appendChild(listCheckbox);
     listCheckbox.addEventListener("click", () => {
-      myCheckboxList(listCheckbox, itemText, todoList);
+      myCheckboxList(listCheckbox, itemText, bucketListWithItems);
     });
 
     let listButton = document.createElement("button");
@@ -41,7 +41,7 @@ function displayTodo() {
     item.appendChild(listButton);
     listButton.innerHTML = "ta bort!";
     listButton.addEventListener("click", () => {
-      changeMyBucketList(todoList);
+      changeMyBucketList(bucketListWithItems);
     });
   }
 }
@@ -58,8 +58,8 @@ function myCheckboxList(
   }
 }
 
-function changeMyBucketList(todoList: IBucketListItem) {
-  let index = bucketList.indexOf(todoList);
+function changeMyBucketList(bucketListWithItems: IBucketListItem) {
+  let index = bucketList.indexOf(bucketListWithItems);
   bucketList.splice(index, 1);
 
   displayTodo();
@@ -71,9 +71,9 @@ inputTask.classList.add("inputTaskStyle");
 let inputButton = document.getElementById("inputButton") as HTMLButtonElement;
 inputButton.classList.add("inputButtonStyle");
 inputButton.innerHTML = "Lägg till Todo!";
-inputButton.addEventListener("click", addItemToList);
+inputButton.addEventListener("click", addItemToBucketlist);
 
-function addItemToList(e: any) {
+function addItemToBucketlist(e: any) {
   e.preventDefault();
   let inputValue = inputTask.value;
   if (inputValue !== "") {
