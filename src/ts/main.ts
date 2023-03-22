@@ -36,11 +36,11 @@ function displayTodo() {
       myCheckboxList(itemCheckbox, itemText, itemInBucketList);
     });
 
-    let listButton = document.createElement("button");
-    listButton.classList.add("listButtonStyle");
-    item.appendChild(listButton);
-    listButton.innerHTML = "ta bort!";
-    listButton.addEventListener("click", () => {
+    let deleteItemButton = document.createElement("button");
+    deleteItemButton.classList.add("listButtonStyle");
+    item.appendChild(deleteItemButton);
+    deleteItemButton.innerHTML = "ta bort!";
+    deleteItemButton.addEventListener("click", () => {
       changeMyBucketList(itemInBucketList);
     });
   }
