@@ -1,7 +1,7 @@
 import type { IBucketListItem } from "./models/BucketList";
 import { BucketListItem } from "./models/BucketList";
 
-let myBucketList: IBucketListItem[] = [];
+let bucketList: IBucketListItem[] = [];
 let ulList: HTMLUListElement = document.getElementById(
   "ulList"
 ) as HTMLUListElement;
@@ -13,17 +13,17 @@ window.onload = function () {
 function displayTodo() {
   ulList.innerHTML = "";
 
-  console.log(myBucketList);
-  for (let i = 0; i < myBucketList.length; i++) {
+  console.log(bucketList);
+  for (let i = 0; i < bucketList.length; i++) {
     let newLiList = document.createElement("li");
     let textSpan = document.createElement("span");
 
     newLiList.classList.add("newLiListStyle");
     textSpan.classList.add("textSpanStyle");
 
-    textSpan.innerHTML = myBucketList[i].task;
+    textSpan.innerHTML = bucketList[i].item;
 
-    let todoList = myBucketList[i];
+    let todoList = bucketList[i];
 
     ulList.appendChild(newLiList);
     newLiList.appendChild(textSpan);
@@ -52,15 +52,15 @@ function myCheckboxList(
   todoList: IBucketListItem
 ) {
   if (listCheckbox.checked) {
-    textSpan.innerHTML = todoList.task + " " + ":Klar";
+    textSpan.innerHTML = todoList.item + " " + ":Klar";
   } else {
-    return (textSpan.innerHTML = todoList.task);
+    return (textSpan.innerHTML = todoList.item);
   }
 }
 
 function changeMyBucketList(todoList: IBucketListItem) {
-  let index = myBucketList.indexOf(todoList);
-  myBucketList.splice(index, 1);
+  let index = bucketList.indexOf(todoList);
+  bucketList.splice(index, 1);
 
   displayTodo();
 }
@@ -78,7 +78,7 @@ function addItemToList(e: any) {
   let inputValue = inputTask.value;
   if (inputValue !== "") {
     let addToList = new BucketListItem(inputValue, false);
-    myBucketList.push(addToList);
+    bucketList.push(addToList);
     displayTodo();
   }
 }

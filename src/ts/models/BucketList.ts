@@ -1,8 +1,8 @@
 export interface IBucketListItem {
-  task: string;
+  item: string;
   completed: boolean;
 }
 
 export class BucketListItem {
-  constructor(public task: string, public completed: boolean) {}
+  constructor(public item: string, public completed: boolean) {}
 }
