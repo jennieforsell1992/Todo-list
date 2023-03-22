@@ -7,10 +7,10 @@ let items: HTMLUListElement = document.getElementById(
 ) as HTMLUListElement;
 
 window.onload = function () {
-  displayTodo();
+  createHtmlBucketList();
 };
 
-function displayTodo() {
+function createHtmlBucketList() {
   items.innerHTML = "";
 
   console.log(bucketList);
@@ -33,7 +33,7 @@ function displayTodo() {
     itemCheckbox.classList.add("listCheckboxStyle");
     item.appendChild(itemCheckbox);
     itemCheckbox.addEventListener("click", () => {
-      myCheckboxList(itemCheckbox, itemText, itemInBucketList);
+      checkboxBucketlist(itemCheckbox, itemText, itemInBucketList);
     });
 
     let deleteItemButton = document.createElement("button");
@@ -46,7 +46,7 @@ function displayTodo() {
   }
 }
 
-function myCheckboxList(
+function checkboxBucketlist(
   itemCheckbox: HTMLInputElement,
   itemText: HTMLSpanElement,
   itemInBucketList: IBucketListItem
@@ -62,7 +62,7 @@ function changeMyBucketList(bucketListWithItems: IBucketListItem) {
   let index = bucketList.indexOf(bucketListWithItems);
   bucketList.splice(index, 1);
 
-  displayTodo();
+  createHtmlBucketList();
 }
 
 let inputItem = document.getElementById("inputTask") as HTMLInputElement;
@@ -81,6 +81,6 @@ function addItemToBucketlist(e: any) {
   if (inputValue !== "") {
     let addToList = new BucketListItem(inputValue, false);
     bucketList.push(addToList);
-    displayTodo();
+    createHtmlBucketList();
   }
 }
