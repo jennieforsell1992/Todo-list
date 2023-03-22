@@ -1,5 +1,6 @@
 import type { IBucketListItem } from "./models/BucketList";
 import { BucketListItem } from "./models/BucketList";
+
 let myBucketList: IBucketListItem[] = [];
 let ulList: HTMLUListElement = document.getElementById(
   "ulList"
@@ -70,9 +71,9 @@ inputTask.classList.add("inputTaskStyle");
 let inputButton = document.getElementById("inputButton") as HTMLButtonElement;
 inputButton.classList.add("inputButtonStyle");
 inputButton.innerHTML = "Lägg till Todo!";
-inputButton.addEventListener("click", addTaskToList);
+inputButton.addEventListener("click", addItemToList);
 
-function addTaskToList(e: any) {
+function addItemToList(e: any) {
   e.preventDefault();
   let inputValue = inputTask.value;
   if (inputValue !== "") {
