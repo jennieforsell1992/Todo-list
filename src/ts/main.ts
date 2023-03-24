@@ -2,9 +2,14 @@ import type { IBucketListItem } from "./models/BucketList";
 import { BucketListItem } from "./models/BucketList";
 
 let bucketList: IBucketListItem[] = [];
+const form: HTMLFormElement = document.getElementById(
+  "form"
+) as HTMLFormElement;
+form.classList.add("form");
 let items: HTMLUListElement = document.getElementById(
   "ulList"
 ) as HTMLUListElement;
+items.classList.add("ul-items");
 
 window.onload = function () {
   createHtmlBucketList();
@@ -16,8 +21,8 @@ function createHtmlBucketList() {
     let item = document.createElement("li");
     let itemText = document.createElement("span");
 
-    item.classList.add("newLiListStyle");
-    itemText.classList.add("textSpanStyle");
+    item.classList.add("ul-items__item");
+    itemText.classList.add("ul-items__item--itemText");
 
     itemText.innerHTML = bucketList[i].item;
 
@@ -28,14 +33,14 @@ function createHtmlBucketList() {
 
     let itemCheckbox = document.createElement("input");
     itemCheckbox.setAttribute("type", "checkbox");
-    itemCheckbox.classList.add("listCheckboxStyle");
+    itemCheckbox.classList.add("ul-items__item--checkbox");
     item.appendChild(itemCheckbox);
     itemCheckbox.addEventListener("click", () => {
       checkboxBucketlist(itemCheckbox, itemText, itemInBucketList);
     });
 
     let deleteItemButton = document.createElement("button");
-    deleteItemButton.classList.add("listButtonStyle");
+    deleteItemButton.classList.add("ul-items__item--btn");
     item.appendChild(deleteItemButton);
     deleteItemButton.innerHTML = "ta bort!";
     deleteItemButton.addEventListener("click", () => {
@@ -64,12 +69,12 @@ function deleteItemInBucketList(itemInBucketList: IBucketListItem) {
 }
 
 let inputItem = document.getElementById("inputTask") as HTMLInputElement;
-inputItem.classList.add("inputTaskStyle");
+inputItem.classList.add("form__input");
 
 let inputItemButton = document.getElementById(
   "inputButton"
 ) as HTMLButtonElement;
-inputItemButton.classList.add("inputButtonStyle");
+inputItemButton.classList.add("form__btn");
 inputItemButton.innerHTML = "Lägg till Todo!";
 inputItemButton.addEventListener("click", addItemToBucketlist);
 

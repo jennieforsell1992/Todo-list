@@ -9,25 +9,24 @@ body {
   align-items: center;
   font-size: 25px;
 }
-form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &__input {
+    font-size: 25px;
+  }
+
+  &__btn {
+    font-size: 25px;
+
+    @include mix.buttonStyle;
+  }
 }
 
-.inputTaskStyle {
-  font-size: 25px;
-}
-
-.inputButtonStyle {
-  font-size: 25px;
-
-  @include mix.buttonStyle;
-}
-
-ul {
-  li {
+.ul-items {
+  &__item {
     display: flex;
     gap: 70px;
     justify-content: space-evenly;
@@ -36,11 +35,11 @@ ul {
     width: 100%;
     border: solid white 3px;
 
-    input {
+    &--checkbox {
       font-size: 25px;
     }
 
-    button {
+    &--btn {
       display: flex;
 
       font-size: 25px;
