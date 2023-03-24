@@ -5,6 +5,7 @@ let bucketList: IBucketListItem[] = [];
 let items: HTMLUListElement = document.getElementById(
   "ulList"
 ) as HTMLUListElement;
+items.classList.add("ul-items");
 
 window.onload = function () {
   createHtmlBucketList();
@@ -16,8 +17,8 @@ function createHtmlBucketList() {
     let item = document.createElement("li");
     let itemText = document.createElement("span");
 
-    item.classList.add("newLiListStyle");
-    itemText.classList.add("textSpanStyle");
+    item.classList.add("ul-items__item");
+    itemText.classList.add("ul-items__item--itemText");
 
     itemText.innerHTML = bucketList[i].item;
 
@@ -28,14 +29,14 @@ function createHtmlBucketList() {
 
     let itemCheckbox = document.createElement("input");
     itemCheckbox.setAttribute("type", "checkbox");
-    itemCheckbox.classList.add("listCheckboxStyle");
+    itemCheckbox.classList.add("ul-items__item--checkbox");
     item.appendChild(itemCheckbox);
     itemCheckbox.addEventListener("click", () => {
       checkboxBucketlist(itemCheckbox, itemText, itemInBucketList);
     });
 
     let deleteItemButton = document.createElement("button");
-    deleteItemButton.classList.add("listButtonStyle");
+    deleteItemButton.classList.add("ul-items__item--btn");
     item.appendChild(deleteItemButton);
     deleteItemButton.innerHTML = "ta bort!";
     deleteItemButton.addEventListener("click", () => {
