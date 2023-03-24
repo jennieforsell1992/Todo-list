@@ -2,6 +2,10 @@ import type { IBucketListItem } from "./models/BucketList";
 import { BucketListItem } from "./models/BucketList";
 
 let bucketList: IBucketListItem[] = [];
+const form: HTMLFormElement = document.getElementById(
+  "form"
+) as HTMLFormElement;
+form.classList.add("form");
 let items: HTMLUListElement = document.getElementById(
   "ulList"
 ) as HTMLUListElement;
@@ -65,12 +69,12 @@ function deleteItemInBucketList(itemInBucketList: IBucketListItem) {
 }
 
 let inputItem = document.getElementById("inputTask") as HTMLInputElement;
-inputItem.classList.add("inputTaskStyle");
+inputItem.classList.add("form__input");
 
 let inputItemButton = document.getElementById(
   "inputButton"
 ) as HTMLButtonElement;
-inputItemButton.classList.add("inputButtonStyle");
+inputItemButton.classList.add("form__btn");
 inputItemButton.innerHTML = "Lägg till Todo!";
 inputItemButton.addEventListener("click", addItemToBucketlist);
 

@@ -9,21 +9,20 @@ body {
   align-items: center;
   font-size: 25px;
 }
-form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  &__input {
+    font-size: 25px;
+  }
 
-.inputTaskStyle {
-  font-size: 25px;
-}
+  &__btn {
+    font-size: 25px;
 
-.inputButtonStyle {
-  font-size: 25px;
-
-  @include mix.buttonStyle;
+    @include mix.buttonStyle;
+  }
 }
 
 .ul-items {
@@ -40,7 +39,7 @@ form {
       font-size: 25px;
     }
 
-    button {
+    &--btn {
       display: flex;
 
       font-size: 25px;
